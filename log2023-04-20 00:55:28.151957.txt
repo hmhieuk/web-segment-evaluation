@@ -1,0 +1,280 @@
+Success: 000006
+Success: 000001
+Success: 000000
+Success: 000010
+Success: 000004
+Success: 000005
+Success: 000003
+Success: 000008
+Success: 000002
+Success: 000009
+Failed to segment 000017 with error: 'utf-8' codec can't decode byte 0x83 in position 351: invalid start byte
+Failed to segment 000020 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000019 with error: 'utf-8' codec can't decode byte 0xe0 in position 383: invalid continuation byte
+Success: 000011
+Failed to segment 000021 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000022 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Success: 000013
+Success: 000012
+Success: 000014
+Success: 000018
+Failed to segment 000023 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000024 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000026 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000025 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000030 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000027 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000028 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000032 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000031 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000029 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000033 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000035 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000034 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000037 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000036 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000038 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000040 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000041 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000042 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000039 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000043 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000045 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000046 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000044 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000047 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000048 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000052 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000050 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000051 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000049 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000054 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000053 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000056 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000057 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Failed to segment 000060 with error: 'utf-8' codec can't decode byte 0xde in position 226: invalid continuation byte
+Failed to segment 000055 with error: 'utf-8' codec can't decode byte 0xa1 in position 295: invalid start byte
+Success: 000061
+Success: 000059
+Success: 000062
+Success: 000058
+Success: 000063
+Success: 000066
+Success: 000070
+Success: 000064
+Success: 000065
+Success: 000068
+Success: 000071
+Success: 000072
+Success: 000067
+Success: 000069
+Success: 000074
+Success: 000075
+Success: 000073
+Success: 000081
+Success: 000078
+Success: 000080
+Success: 000082
+Success: 000076
+Success: 000079
+Success: 000083
+Success: 000090
+Success: 000086
+Success: 000091
+Success: 000084
+Success: 000085
+Success: 000088
+Success: 000092
+Success: 000087
+Success: 000093
+Success: 000089
+Failed to segment 000095 with error: 'utf-8' codec can't decode byte 0xd0 in position 293: invalid continuation byte
+Success: 000097
+Success: 000096
+Success: 000103
+Success: 000098
+Success: 000102
+Success: 000094
+Success: 000104
+Success: 000100
+Success: 000099
+Failed to segment 000111 with error: 'utf-8' codec can't decode byte 0xba in position 200: invalid start byte
+Failed to segment 000107 with error: 'utf-8' codec can't decode byte 0xd2 in position 2169: invalid continuation byte
+Failed to segment 000112 with error: 'utf-8' codec can't decode byte 0xb0 in position 200: invalid start byte
+Success: 000108
+Success: 000106
+Success: 000109
+Success: 000105
+Success: 000114
+Success: 000113
+Success: 000110
+Failed to segment 000120 with error: 'utf-8' codec can't decode byte 0xa9 in position 66481: invalid start byte
+Success: 000118
+Success: 000119
+Success: 000125
+Success: 000117
+Success: 000121
+Success: 000116
+Success: 000122
+Success: 000124
+Success: 000123
+Success: 000129
+Success: 000128
+Success: 000131
+Success: 000133
+Success: 000134
+Success: 000127
+Success: 000130
+Success: 000135
+Success: 000126
+Success: 000136
+Failed to segment 000139 with error: 'utf-8' codec can't decode byte 0xc2 in position 58: invalid continuation byte
+Failed to segment 000143 with error: 'utf-8' codec can't decode byte 0xa9 in position 64464: invalid start byte
+Success: 000141
+Success: 000146
+Success: 000140
+Success: 000142
+Success: 000144
+Success: 000138
+Success: 000148
+Success: 000137
+Success: 000150
+Success: 000155
+Success: 000152
+Success: 000164
+Success: 000153
+Success: 000151
+Success: 000165
+Success: 000154
+Success: 000149
+Success: 000166
+Success: 000172
+Success: 000171
+Success: 000167
+Success: 000175
+Success: 000170
+Success: 000168
+Success: 000173
+Success: 000169
+Success: 000176
+Success: 000174
+Failed to segment 000180 with error: 'utf-8' codec can't decode byte 0xf3 in position 1370: invalid continuation byte
+Success: 000178
+Success: 000177
+Success: 000187
+Success: 000179
+Success: 000186
+Success: 000181
+Success: 000183
+Success: 000182
+Success: 000184
+Success: 000188
+Failed to segment 000199 with error: 'utf-8' codec can't decode byte 0x96 in position 20455: invalid start byte
+Success: 000190
+Success: 000194
+Success: 000189
+Success: 000192
+Success: 000198
+Success: 000195
+Success: 000196
+Success: 000197
+Success: 000201
+Success: 000202
+Success: 000200
+Success: 000209
+Success: 000204
+Success: 000208
+Success: 000210
+Success: 000207
+Success: 000203
+Success: 000205
+Success: 000212
+Success: 000211
+Success: 000213
+Success: 000219
+Success: 000216
+Success: 000215
+Success: 000214
+Success: 000217
+Success: 000220
+Success: 000218
+Failed to segment 000221 with error: 'utf-8' codec can't decode byte 0x92 in position 309: invalid start byte
+Success: 000227
+Success: 000223
+Success: 000228
+Success: 000224
+Success: 000226
+Success: 000230
+Success: 000229
+Success: 000225
+Success: 000222
+Failed to segment 000238 with error: 'utf-8' codec can't decode byte 0x96 in position 135: invalid start byte
+Success: 000232
+Success: 000235
+Success: 000233
+Success: 000236
+Success: 000234
+Success: 000239
+Success: 000240
+Success: 000231
+Success: 000237
+Failed to segment 000245 with error: 'utf-8' codec can't decode byte 0xd4 in position 1725: invalid continuation byte
+Success: 000243
+Success: 000244
+Success: 000252
+Success: 000250
+Success: 000241
+Success: 000249
+Success: 000247
+Success: 000248
+Success: 000251
+Failed to segment 000254 with error: 'utf-8' codec can't decode byte 0xd1 in position 1230: invalid continuation byte
+Failed to segment 000255 with error: 'utf-8' codec can't decode byte 0xcf in position 189: invalid continuation byte
+Success: 000259
+Success: 000253
+Success: 000260
+Success: 000258
+Success: 000257
+Success: 000256
+Success: 000262
+Success: 000261
+Failed to segment 000271 with error: 'utf-8' codec can't decode byte 0xb8 in position 126: invalid start byte
+Success: 000265
+Success: 000264
+Success: 000270
+Success: 000273
+Success: 000272
+Success: 000266
+Success: 000269
+Success: 000267
+Success: 000263
+Failed to segment 000278 with error: 'utf-8' codec can't decode byte 0xe1 in position 2335: invalid continuation byte
+Success: 000274
+Success: 000284
+Success: 000282
+Success: 000281
+Success: 000280
+Success: 000283
+Success: 000277
+Success: 000276
+Success: 000275
+Failed to segment 000292 with error: 'utf-8' codec can't decode byte 0xcf in position 53: invalid continuation byte
+Failed to segment 000295 with error: 'utf-8' codec can't decode byte 0xca in position 53: invalid continuation byte
+Failed to segment 000294 with error: 'utf-8' codec can't decode byte 0xcf in position 53: invalid continuation byte
+Failed to segment 000293 with error: 'utf-8' codec can't decode byte 0xd2 in position 53: invalid continuation byte
+Success: 000291
+Success: 000285
+Success: 000289
+Success: 000288
+Success: 000297
+Success: 000287
+Success: 000298
+Success: 000301
+Success: 000305
+Success: 000307
+Success: 000300
+Success: 000302
+Success: 000303
+Success: 000306
+Success: 000299
+Success: 000304
