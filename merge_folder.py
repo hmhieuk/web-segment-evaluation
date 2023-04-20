@@ -2,11 +2,11 @@ import os
 import shutil
 
 # specify the paths to the source and destination folders
-src_folder = "/Users/hieu.huynh/Downloads/webis-webseg-20 3"
+src_folder = "/Users/hieu.huynh/Downloads/webis-webseg-20"
 dest_folder = "/Users/hieu.huynh/Downloads/webis-webseg-20 2"
 
 # specify the patterns of files to keep
-file_patterns = [".png"]
+file_patterns = [".json"]
 
 # loop through each subdirectory in the source folder
 for subdir, dirs, files in os.walk(src_folder):
@@ -24,3 +24,4 @@ for subdir, dirs, files in os.walk(src_folder):
             src_file = os.path.join(subdir, file)
             dest_file = os.path.join(dest_subdir, file)
             shutil.copy2(src_file, dest_file)
+            # input("copied " + file + " to " + dest_subdir + " ...")
