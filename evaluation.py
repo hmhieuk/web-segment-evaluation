@@ -49,27 +49,20 @@ def get_width_height_from_ground_truth(ground_truth_file):
     
     
 
-def segment_dom(id, domfile, output_file, log_file, nodes_file, screenshot_file, base_dir, ground_truth_file):
+def segment_dom(id, domfile, output_file, log_file, nodes_file, screenshot_file, base_dir, ground_truth_file, nodes_text_file):
     width, height = get_width_height_from_ground_truth(ground_truth_file)
     # domfile = "file://" + domfile
+    coordinates = nodes_file_to_json(nodes_file, nodes_text_file)
+
     spliter = Segment(domfile)
-    spliter.segment(
-        url=domfile, output_folder=os.path.join(base_dir, id))
+    found, not_found = spliter.segment(
+        url=domfile, output_folder=os.path.join(base_dir, id), nodes_dict= coordinates)
     annotations = Annotations(
         id, height, width, [], "my_algorithm")
-
-    coordinates = nodes_file_to_json(nodes_file)
-
     filtered_segments = []
-    found, not_found = 0, 0
+    sum_area = 0
     for segment in spliter.json_data["segments"]:
-        xpath = normalize_xpath(segment["xpath"])
-        if xpath not in coordinates:
-            # print("xpath not found: " + xpath)
-            not_found += 1
-            continue
-        found += 1
-        bb1 = coordinates[xpath]
+        bb1 = segment["bounding_box"]
         cor1 = (bb1['x'], bb1['y'], bb1['x'] +
                 bb1['width'], bb1['y'] + bb1['height'])
 
@@ -77,8 +70,9 @@ def segment_dom(id, domfile, output_file, log_file, nodes_file, screenshot_file,
             min(width, cor1[2])), int(min(height, cor1[3])))
 
         area = (cor1[2] - cor1[0]) * (cor1[3] - cor1[1])
+        sum_area += area
         ratio = area / (height * width)
-        if ratio > 0.7:
+        if ratio > 0.5:
             continue
 
         filtered_segments.append(segment)
@@ -98,19 +92,30 @@ def segment_dom(id, domfile, output_file, log_file, nodes_file, screenshot_file,
     return found, not_found
 
 
-def nodes_file_to_json(nodes_file):
+def nodes_file_to_json(nodes_file, nodes_text_file):
+    coordinates = {}
     with open(nodes_file, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-        coordinates = {}
         for row in reader:
             xpath = row['xpath']
             left = int(row['left'])
             bottom = int(row['bottom'])
             right = int(row['right'])
             top = int(row['top'])
-            coordinates[xpath] = {'x': left, 'y': top,
-                                  'width': right - left, 'height': bottom - top}
-        return coordinates
+            coordinates[xpath] = [{'x': left, 'y': top,
+                                  'width': right - left, 'height': bottom - top}, ""]
+    with open(nodes_text_file, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            xpath = row['xpath']
+            text = row['text']
+            if xpath in coordinates:
+                coordinates[xpath][1]=text
+            else:
+                coordinates[xpath] = []
+                coordinates[xpath].append({})
+                coordinates[xpath].append(text)
+    return coordinates
 
 
 def normalize_xpath(xpath):
@@ -133,12 +138,13 @@ def segment_file(dataset_path, ground_truth_path, folder_name, log_file):
             dataset_path, folder_name, "annotations.json")
         # log_file = os.path.join(dataset_path, folder_name, "log.txt")
         nodes_file = os.path.join(dataset_path, folder_name, "nodes.csv")
+        nodes_text_file = os.path.join(dataset_path, folder_name, "nodes-texts.csv")
         screenshot_file = os.path.join(
             dataset_path, folder_name, "screenshot.png")
         
         ground_truth_file = os.path.join(
             ground_truth_path, folder_name, "ground-truth.json")
-        found, notfound = segment_dom(folder_name, domfile, output_file, log_file, nodes_file, screenshot_file, dataset_path, ground_truth_file)
+        found, notfound = segment_dom(folder_name, domfile, output_file, log_file, nodes_file, screenshot_file, dataset_path, ground_truth_file, nodes_text_file)
         #write log file
         with open(log_file, "a") as f:
             f.write("Success: " + folder_name + ". Found: " + str(found) + " not found: " + str(notfound))
@@ -151,26 +157,31 @@ def segment_file(dataset_path, ground_truth_path, folder_name, log_file):
 
 def main():
     dataset_path = "/Users/hieu.huynh/Downloads/webis-webseg-20 2"
-    ground_truth_path = "/Users/hieu.huynh/Downloads/webis-webseg-20"
+    ground_truth_path = "/Users/hieu.huynh/Downloads/webis-webseg-20 2"
 
     log_file = "log" + str(datetime.datetime.now()) + ".txt"
 
-    folder_names = os.listdir(dataset_path)
-    folder_names.sort()
+    # folder_names = os.listdir(dataset_path)
+    with open("random_id.json", "r") as f:
+        folder_names = json.load(f)
+        folder_names.sort()
     # ignore .DS_Store,
     folder_names = [
         folder_name for folder_name in folder_names if folder_name[0] != "."]
     
     threads = []
-    for i in range(0, len(folder_names), 10):
-        print("processing batch " + str(i))
-        batch = folder_names[i:i+10]
-        for url in batch:
-            t = threading.Thread(target=segment_file, args=(dataset_path, ground_truth_path, url, log_file))
-            threads.append(t)
+    batch_size = 10
+    for i in range(0, len(folder_names), batch_size):
+        batch = folder_names[i:i+batch_size]
+        for folder_name in batch:
+            t = threading.Thread(target=segment_file, args=(dataset_path, ground_truth_path, folder_name, log_file))
             t.start()
+            threads.append(t)
         for t in threads:
             t.join()
+        threads = []
+        # input("Done " + str(i) + "/" + str(len(folder_names)) + ". Press enter to continue")
+        print("Done " + str(i) + "/" + str(len(folder_names)))
 
 if __name__ == "__main__":
     main()
