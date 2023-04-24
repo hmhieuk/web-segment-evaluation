@@ -521,3 +521,18 @@ def merge_bbox(bbox1, bbox2):
     h = max(y1+h1, y2+h2) - y
 
     return {'x': x, 'y': y, 'width': w, 'height': h}
+
+def bbox_coverage_ratio(bbox1, bbox2):
+    # the bbox is a list of 4 values, the first is the x, the second is the y, the third is the width and the fourth is the height
+    if 'x' not in bbox1 or 'y' not in bbox1 or 'width' not in bbox1 or 'height' not in bbox1:
+        return 0
+    if 'x' not in bbox2 or 'y' not in bbox2 or 'width' not in bbox2 or 'height' not in bbox2:
+        return 0
+    x1, y1, w1, h1 = bbox1['x'], bbox1['y'], bbox1['width'], bbox1['height']
+    x2, y2, w2, h2 = bbox2['x'], bbox2['y'], bbox2['width'], bbox2['height']
+    x = min(x1, x2)
+    y = min(y1, y2)
+    w = max(x1+w1, x2+w2) - x
+    h = max(y1+h1, y2+h2) - y
+
+    return (w*h)/(w1*h1)

@@ -61,7 +61,17 @@ def segment_dom(id, domfile, output_file, log_file, nodes_file, screenshot_file,
         id, height, width, [], "my_algorithm")
     filtered_segments = []
     sum_area = 0
+    # sort spliter.json_data["segments"] by level
+    spliter.json_data["segments"].sort(key=lambda x: x["level"])
     for segment in spliter.json_data["segments"]:
+        isNotChild = True
+        for filtered_segment in filtered_segments:
+            if segment["xpath"].startswith(filtered_segment["xpath"]):
+                isNotChild = False
+                break
+
+        if not isNotChild:
+            continue
         bb1 = segment["bounding_box"]
         cor1 = (bb1['x'], bb1['y'], bb1['x'] +
                 bb1['width'], bb1['y'] + bb1['height'])
@@ -74,7 +84,6 @@ def segment_dom(id, domfile, output_file, log_file, nodes_file, screenshot_file,
         ratio = area / (height * width)
         if ratio > 0.5:
             continue
-
         filtered_segments.append(segment)
 
         segmentation = []
@@ -161,16 +170,16 @@ def main():
 
     log_file = "log" + str(datetime.datetime.now()) + ".txt"
 
-    # folder_names = os.listdir(dataset_path)
-    with open("random_id.json", "r") as f:
-        folder_names = json.load(f)
-        folder_names.sort()
+    folder_names = os.listdir(dataset_path)
+    # with open("random_id.json", "r") as f:
+    #     folder_names = json.load(f)
+    #     folder_names.sort()
     # ignore .DS_Store,
     folder_names = [
         folder_name for folder_name in folder_names if folder_name[0] != "."]
     
     threads = []
-    batch_size = 10
+    batch_size = 20
     for i in range(0, len(folder_names), batch_size):
         batch = folder_names[i:i+batch_size]
         for folder_name in batch:

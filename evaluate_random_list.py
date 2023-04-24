@@ -82,6 +82,9 @@ def main():
     f1 = 0
     for line in output:
         line = line.split(",")
+        for l in line:
+            if l == "" or l == " " or l == "na" or l == "NA":
+                l = 0
         presicion += float(line[1])
         recall += float(line[2])
         f1 += float(line[3])
