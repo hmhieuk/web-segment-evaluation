@@ -23,7 +23,7 @@ def evaluate_file_id(id, dataset_path, evaluation_file):
     algorithm = json_file
     algorithm_segmentation = "my_algorithm"
     ground_truth = ground_truth_file
-    size_function = "pixels"
+    size_function = "nodes"
     output = "/Users/hieu.huynh/Documents/Projects/web-segmentation/web-segment/temp.csv"
 
     cmd = f"{rscript} {rscript_path} \
@@ -50,7 +50,7 @@ def evaluate_file_id(id, dataset_path, evaluation_file):
 def main():
 
 # read folder names from json random_id.json
-    with open("random_id.json", "r") as f:
+    with open("filtered_success_ids.json", "r") as f:
         folder_names = json.load(f)
 
     dataset_path = "/Users/hieu.huynh/Downloads/webis-webseg-20 2"

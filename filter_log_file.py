@@ -2,7 +2,7 @@
 import json
 
 
-log_file = "/Users/hieu.huynh/Documents/Projects/web-segmentation/web-segment/log2023-04-20 01:02:34.021283.txt"
+log_file = "log2023-04-24 10:07:12.822462.txt"
 
 # specify the threshold for the not found rate
 not_found_rate_threshold = 0.5
@@ -18,20 +18,18 @@ for line in lines:
     # e.g. Success: 000010. Found: 23 not found: 7
     integers = [s for s in line.replace(".", "").split() if s.isdigit()]
     id = integers[0]
-    found = int(integers[1])
-    not_found = int(integers[2])
+    try:
+        found = int(integers[1])
+        not_found = int(integers[2])
+    except:
+        continue
 
     # store the counts in the dictionary
     counts[id] = {"found": found, "not_found": not_found}
 
 # filter the ids that have a not found rate above the threshold
-filtered_ids = [id for id, count in counts.items() if count["not_found"] / (count["found"] + count["not_found"]) > not_found_rate_threshold]
-with open("random_id.json", "r") as f:
-    folder_names = json.load(f)
-filtered_ids = [id for id in folder_names if id in filtered_ids]
-# print the filtered ids
-print(len(filtered_ids))
+filtered_ids = list(counts.keys())
 
 # write the filtered ids to a file
-with open("filtered_error_ids.json", "w") as f:
+with open("filtered_success_ids.json", "w") as f:
     json.dump(filtered_ids, f)
